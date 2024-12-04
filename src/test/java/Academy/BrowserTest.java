@@ -1,27 +1,25 @@
 package Academy;
 
 import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BrowserTest {
 
     @Test
     public void getData() {
         System.out.println("Hello Guys");
-        
-        // Automatically set up the ChromeDriver using WebDriverManager
-        WebDriverManager.chromedriver().setup();
-        
-        // Now, no need to manually set the system property
+
+        // Manually set up the ChromeDriver path
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\femip\\git\\Automation\\lib\\chromedriver.exe");
+
         WebDriver driver = new ChromeDriver();
-        driver.get("https://rahylshettyacademy.azurewebsites.net/webapp/");
+        
+        driver.get("http://localhost:8080/webapp/");
         
         String text = driver.findElement(By.cssSelector("h1")).getText();
         System.out.println(text);
@@ -31,4 +29,3 @@ public class BrowserTest {
         driver.close();
     }
 }
-
