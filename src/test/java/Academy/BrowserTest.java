@@ -2,7 +2,6 @@ package Academy;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,13 +18,18 @@ public class BrowserTest {
 
         WebDriver driver = new ChromeDriver();
         
-        driver.get("http://localhost:8080/webapp/");
+        try {
+            driver.get("http://localhost:8080/webapp/");
         
-        String text = driver.findElement(By.cssSelector("h1")).getText();
-        System.out.println(text);
+            // Get the text of the <h1> element
+            String text = driver.findElement(By.cssSelector("h1")).getText();
+            System.out.println(text);
         
-        Assert.assertTrue(text.equalsIgnoreCase("RahulShettyAcademy.com Learning"));
-        
-        driver.close();
+            // Assert the text matches the expected value
+            Assert.assertEquals("Expected title", "RahulShettyAcademy.com Learning", text);
+        } finally {
+            // Close the browser window after the test is done
+            driver.quit();
+        }
     }
 }
