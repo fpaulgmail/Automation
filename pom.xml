@@ -5,7 +5,7 @@
     <groupId>Academy</groupId>
     <artifactId>devops</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>devops</name>
     <url>http://maven.apache.org</url>
@@ -48,6 +48,7 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
                 </configuration>
             </plugin>
         </plugins>
